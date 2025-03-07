@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GHROK</title>
+
+  <!-- Importing Google Fonts: Creepster for headings, Poppins for body text -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Root Variables: Adjust these as needed */
+    :root {
+      --bg-color: #2A2A2A;       /* Dark gray background */
+      --text-color: #F0F0F0;     /* Lighter text */
+      --accent-color: #76FF76;   /* Subtle neon green accent */
+      --container-bg: #3A3A3A;   /* Slightly lighter than bg-color */
+    }
+
+    /* General styles */
+    body {
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      background-color: var(--bg-color);
+      color: var(--text-color);
+
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif; /* Default body font */
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Headings in "Creepster" font with a subtle glow */
+    h1, h2, h3 {
+      font-family: 'Creepster', cursive;
+      color: var(--accent-color);
+      text-shadow: 0 0 3px var(--accent-color);
+      margin: 10px 0;
+    }
+
+    p {
+      margin: 10px 0;
+      word-wrap: break-word;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+    }
+
+    /* Image container */
+    .image-container {
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
+      background-color: var(--container-bg);
+      margin: 20px 0;
+      border-radius: 10px;
+      overflow: hidden;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* or "cover" if you prefer */
+    }
+
+    /* Social buttons */
+    .socials {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 400px;
+    }
+    .socials a {
+      display: block;
+      text-decoration: none;
+      background-color: var(--container-bg);
+      color: var(--accent-color);
+      border: 2px solid var(--accent-color);
+
+      padding: 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      transition: 0.2s;
+    }
+    .socials a:hover {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+    }
+
+    /* How to Buy Section */
+    .how-to-buy {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .how-to-buy .step {
+      background-color: var(--container-bg);
+      color: var(--text-color);
+      padding: 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      border: 2px solid var(--accent-color);
+    }
+
+    /* Highlight the "Step X" portion in green & with a subtle glow */
+    .how-to-buy .step span {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+      color: var(--accent-color);
+      font-family: 'Creepster', cursive;
+      text-shadow: 0 0 3px var(--accent-color);
+    }
+
+    /* Contract Address Section */
+    .ca-container {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .ca-container p {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+    }
+
+    .ca-box {
+      background-color: var(--container-bg);
+      color: var(--accent-color);
+      border: 2px solid var(--accent-color);
+
+      padding: 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      max-width: 100%;
+      font-size: 14px;
+      line-height: 1.4;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .copy-btn {
+      background-color: var(--container-bg);
+      color: var(--accent-color);
+      border: 2px solid var(--accent-color);
+
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+      width: 120px;
+    }
+    .copy-btn:hover {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+    }
+
+    /* Chart Container */
+    .chart-container {
+      width: 100%;
+      max-width: 500px;
+      height: 350px;
+      background-color: var(--container-bg);
+      margin-top: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid var(--accent-color);
+    }
+    .chart-container iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 480px) {
+      .container {
+        width: 100%;
+        padding: 10px;
+      }
+      .image-container {
+        height: 300px;
+      }
+      .ca-box {
+        font-size: 12px;
+        padding: 10px;
+      }
+      .copy-btn {
+        width: 100px;
+        padding: 8px;
+        font-size: 12px;
+      }
+      .chart-container {
+        height: 250px;
+      }
+      .how-to-buy .step {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>GHROK</h1>
+    <p>Your new crypto companion</p>
+
+    <!-- GHROK Image Container -->
+    <div class="image-container">
+      <!-- Replace "ghrok.png" with the actual path to your GHROK image -->
+      <img src="ghrok.png" alt="GHROK" />
+    </div>
+
+    <!-- Social Links -->
+    <div class="socials">
+      <a href="https://t.me/ghrokonsol" target="_blank">Telegram</a>
+      <a href="https://x.com/grok/status/1897975962765066521?s=61" target="_blank">Twitter</a>
+      <a href="https://pump.fun/coin/CMXspVtSSNWkJMHHuE3tDmpfYQdapf8n411rtYe6pump?coins_sort=market_cap" target="_blank">Pump.fun</a>
+      <a href="https://dexscreener.com/solana/5Bmy3SVYxL2X1Ah5AUwvNQazCSMG8VYSsd3fWiZZ988G" target="_blank">Dexscreener</a>
+    </div>
+
+<!-- Contract Address Section -->
+    <div class="ca-container">
+      <p>Contract Address:</p>
+      <div class="ca-box" id="ca">CMXspVtSSNWkJMHHuE3tDmpfYQdapf8n411rtYe6pump</div>
+      <button class="copy-btn" onclick="copyCA()">Copy</button>
+    </div>
+
+    <!-- How to Buy Section -->
+    <div class="how-to-buy">
+      <div class="step">
+        <span>Step 1:</span>
+        Get a Solana wallet like Phantom or Solflare.
+      </div>
+      <div class="step">
+        <span>Step 2:</span>
+        Purchase Solana (SOL) from a crypto exchange.
+      </div>
+      <div class="step">
+        <span>Step 3:</span>
+        Transfer SOL to your wallet.
+      </div>
+      <div class="step">
+        <span>Step 4:</span>
+        Go to a decentralized exchange (DEX) on Solana.
+      </div>
+      <div class="step">
+        <span>Step 5:</span>
+        Swap SOL for <strong>$GHROK</strong> using the contract address below.
+      </div>
+    </div>
+
+
+    <!-- Chart Container -->
+    <div class="chart-container">
+      <!-- Updated to 'dark' theme for better contrast -->
+    <iframe 
+	width="100%" 
+	height="600" 
+	src="https://birdeye.so/tv-widget/CMXspVtSSNWkJMHHuE3tDmpfYQdapf8n411rtYe6pump?chain=solana&viewMode=pair&chartInterval=15&chartType=Candle&chartTimezone=Europe%2FBerlin&chartLeftToolbar=show&theme=dark&cssCustomProperties=--tv-color-platform-background%3A%232c2c2c&cssCustomProperties=--tv-color-pane-background%3A%232c2c2c&chartOverrides=paneProperties.backgroundGradientStartColor%3Argba%2844%2C+44%2C+44%2C+1%29&chartOverrides=paneProperties.backgroundGradientEndColor%3Argba%2844%2C+44%2C+44%2C+1%29" 
+	frameborder="0" 
+	allowfullscreen>
+</iframe>
+    </div>
+  </div>
+
+  <script>
+    function copyCA() {
+      const caText = document.getElementById("ca").textContent;
+      navigator.clipboard.writeText(caText).then(() => {
+        alert("Contract Address copied!");
+      });
+    }
+  </script>
+</body>
+</html>
